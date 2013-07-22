@@ -1,0 +1,9 @@
+<Files *.json>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>

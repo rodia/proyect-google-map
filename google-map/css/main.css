@@ -1,0 +1,284 @@
+a {
+	color: #234B7B;
+	outline: 0;
+	text-decoration: none;
+}
+a:hover{
+	border-bottom:1px dotted #122842;
+	color:#122842;
+}
+
+.inlineclass {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align: top;
+	margin-right: 0px;
+}
+.inlineclass.margin {
+	margin-right: -4px;
+	*margin-right:0px;
+}
+
+.block {
+	display: block;
+}
+.bold {
+	font-weight: bold;
+}
+
+.topspace {
+	margin-top: 5px;
+}
+.rightspace {
+	margin-right: 5px;
+}
+.floatright {
+	float: right;
+}
+.clear {
+	zoom: 1;
+	clear: both;
+}
+
+
+.header {
+	background-color: #DADADA;
+	padding: 5px;
+	color: #474747;
+}
+
+.header #information-paginations strong {
+	font-weight: bold;
+}
+
+.checkbox {
+	width:18px;
+	height: 17px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.checkbox:hover {
+	background-position: -18px 0px;
+}
+.checkbox.checked {
+	background-position: -36px 0px;
+}
+.checkbox.checked:hover {
+	background-position: -54px 0px;
+}
+.checkbox.unknown {
+	background-image: url('../images/unknown_check.png');
+}
+.checkbox.possible-injury {
+	background-image: url('../images/possible-injury_check.png');
+}
+.checkbox.not-injured {
+	background-image: url('../images/not-injured_check.png');
+}
+.checkbox.non-incapacitating {
+	background-image: url('../images/non-incapacitating_check.png');
+}
+.checkbox.incapacitating-injury {
+	background-image: url('../images/incapacitating-injury_check.png');
+}
+.checkbox.fatal {
+	background-image: url('../images/fatal_check.png');
+}
+
+
+div#container {
+/*	width: 940px;*/
+	width: 650px;
+	height: 820px;
+/*	height: 700px;*/
+	font-family: "Georgia";
+
+}
+div#container div#main {
+	height: 430px;
+}
+div#container div#main div#map {
+	height:470px;
+	width:430px;
+	float: left;
+}
+div#container div#main div#checkboxes {
+	padding: 5px;
+	font-family: "Arial";
+	font-size: 13px !important;
+	width:620px;
+}
+
+div#container div.sidebar {
+	width:193px;
+	position: relative;
+	margin-left: 430px;
+/*	height:700px;*/
+}
+
+div#container div.sidebar div#navigation {
+	height: 200px;
+}
+
+div#container div.sidebar div#navigation div.link {
+	font-family: "Arial";
+	padding: 5px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.even {
+	background-color: #F7F7F7;
+}
+div#container div.sidebar div#navigation div.link span {
+	margin-bottom: 5px;
+}
+div#container div.sidebar div#navigation div.link div.desc {
+	font-size: 12px;
+	line-height: 14px;
+}
+div#container div.sidebar div#navigation div.link:hover {
+	background-color: #ededed;
+}
+div#container div.sidebar div#navigation div.link:hover a {
+	border-bottom:1px dotted #122842;
+	color:#122842;
+}
+
+div#container div.sidebar div#navigation div.link.active {
+	background-color: #96C0FF;/*#bdbdbd;*/
+}
+
+div#container div.sidebar div.information {
+/*	height: 500px;*/
+}
+div#container div.sidebar div.information div.info {
+	font-family: "Arial";
+	font-size: 13px;
+	overflow-y: auto;
+	height: 245px;
+/*	height: 475px;*/
+	position: relative;
+}
+div#container div.information div.info #customStreetView {
+	width:100%;
+	height:235px;
+	margin-top: 151px;
+/*	position: absolute;
+	bottom: 0px;*/
+	background-image: url("../images/street-view.png");
+	background-repeat: no-repeat;
+}
+div#container div.sidebar div.information div.info div.Intro {
+	padding: 5px;
+	color: #3b3b3b;
+}
+div#container div.sidebar div.information div.info table tr td {
+	padding: 5px;
+	line-height: 18px;
+}
+td.alignright {
+	text-align: right;
+}
+td.aligncenter {
+	text-align: center;
+}
+td.slight {
+	color: #0097D2;
+}
+td.serious {
+	color: #68A739;
+}
+td.fatal {
+	color: #C72A00;
+}
+
+.ajust-size {
+	font-size: .7em;
+}
+
+div.clusterinfo {
+	padding: 7px;
+	color: #FFF;
+	cursor: pointer;
+	border-bottom: 1px solid #FFF;
+}
+div.clusterinfo.unknown {
+	background-color: #0097D2;
+}
+div.clusterinfo.unknown:hover {
+	background-color: #007daf;
+}
+
+div.clusterinfo.not-injured {
+	background-color: #c7b299;
+}
+div.clusterinfo.not-injured:hover {
+	background-color: #493629;
+}
+
+div.clusterinfo.possible-injury {
+	background-color: #fbaf5d;
+}
+div.clusterinfo.possible-injury:hover {
+	background-color: #764200;
+}
+
+div.clusterinfo.non-incapacitating {
+	background-color: #cccccc;
+}
+div.clusterinfo.non-incapacitating:hover {
+	background-color: #585858;
+}
+
+div.clusterinfo.incapacitating-injury {
+	background-color: #68A739;
+}
+div.clusterinfo.incapacitating-injury:hover {
+	background-color: #5d9734;
+}
+
+div.clusterinfo.fatal {
+	background-color: #C72A00;
+}
+div.clusterinfo.fatal:hover {
+	background-color: #b12601;
+}
+
+#loading {
+	position:absolute;
+	background-image: url('../images/whitetransparent.png');
+	top:0px;
+	left: 0px;
+}
+
+.choose-year {
+	padding: 5px 15px;
+	margin: 3px;
+	color: #fff;
+	cursor: pointer;
+	background-color: transparent;
+	background-image: url(../images/red-button.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border: none;
+}
+
+/** Style for paginations */
+#out-pagination {
+	overflow: auto;
+	height: 40px;
+}
+
+ul    { border:0; margin:0; padding:0; }
+#pagination li          { border:0; margin:0; padding:0; font-size:11px; list-style:none; /* savers */ float:left; }
+#pagination a           { border:solid 1px #DDDDDD; margin-right:2px; }
+#pagination .previous-off,
+#pagination .next-off   { color:#666666; display:block; float:left; font-weight:bold; padding:3px 4px; }
+#pagination .next a,
+#pagination .previous a { font-weight:bold; border:solid 1px #FFFFFF; }
+#pagination .active     { color:#ff0084; font-weight:bold; display:block; float:left; padding:4px 6px; }
+#pagination a:link,
+#pagination a:visited   { color:#0063e3; display:block; float:left; padding:3px 6px; text-decoration:none; }
+#pagination a:hover     { border:solid 1px #666666; }
