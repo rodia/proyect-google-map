@@ -78,7 +78,7 @@
 							Black spots
 						</span>
 
-						<div class="link">
+<!--						<div class="link">
 							<span class="block"><a href="#">Chambers County</a></span>
 						</div>
 
@@ -100,7 +100,7 @@
 
 						<div class="link even active">
 							<span class="block"><a href="#">See All 5 Counties</a></span>
-						</div>
+						</div>-->
 					</div>
 
 					<div class="information">
@@ -137,7 +137,8 @@
 							<td><label><input type="checkbox" name="year[]" value="2008">2008</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2009">2009</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2010">2010</label></td>
-							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2011" checked="checked">2011</label></td>
+							<td><label><input type="checkbox" name="year[]" value="2011">2011</label></td>
+							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>
 							<!--<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>-->
 							<td><input type="button" class="choose-year" name="year[]" value="Load"></td>
 						</tr>
@@ -155,23 +156,5 @@
 				<img src="images/loading.gif" height="30"/>
 			</div>
 		</div>
-<?php
-$clientid = (isset($_GET["clientid"]) || !empty($_GET["clientid"])) ? $_GET["clientid"] : "stewartg";
-?>
-<script type="text/javascript">//<![CDATA[
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount','UA-19671490-1']);
-_gaq.push(['_trackPageview']);
-_gaq.push(['_setCustomVar',1,'ClientID','<?php echo $clientid; ?>',1]);
-_gaq.push(['_trackEvent','Error','404','',0,true]);
-(function () {
-	var ga = document.createElement('script');
-	ga.type = 'text/javascript';
-	ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(ga, s);
-})();
-//]]></script>
 	</body>
 </html>

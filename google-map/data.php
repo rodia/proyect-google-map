@@ -45,29 +45,45 @@ if (!is_array($year)) {
 	$year = array($year);
 }
 $select = "SELECT
-`insident`.`id`,
-`insident`.`year`,
-`insident`.`time`,
-`insident`.`severity`,
-`insident`.`highway`,
-`insident`.`road`,
-`insident`.`latitude`,
-`insident`.`longitude`,
-`insident`.`road_part`,
-`insident`.`contribute_factor`,
-`vehicle`.`id` AS `id_vehicle`,
-`vehicle`.`description`,
-`person`.`type`,
-`person`.`injury`
-FROM `insident`
-INNER JOIN (`vehicle`, `person`)
-ON (`insident`.`id` = `vehicle`.`insident_id`
-	AND `vehicle`.`id` = `person`.`vehicle_id`)
-WHERE `latitude` <> '0' AND `longitude` <> '0'"
-. ($area != "" ? " AND `insident`.`area` = '%s'" : "")
-. " AND `insident`.`year` IN (%s)"
-. " AND `insident`.`severity` IN (%s)
-ORDER BY `insident`.`id` ASC";
+`case_id`,
+`collision_year`,
+`collision_date`,
+`collision_time`,
+`jurisdiction`,
+`day_of_week`,
+`population`,
+`country_city_location`,
+`special_condition`,
+`beat_type`,
+`chp_beat_type`,
+`primary_rd`,
+`secondary_rd`,
+`distance`,
+`intersection`,
+`direction`,
+`weather_1`,
+`weather_2`,
+`state_highway_indicator`,
+`collision_severity`,
+`killed_victims`,
+`injured_victims`,
+`primary_collision_factor`,
+`pcf_violation_code`,
+`pcf_violation_category`,
+`hit_and_run`,
+`type_of_collision`,
+`motor_vehicle_involved_with`,
+`pedestrian_collision`,
+`bicycle_collision`,
+`motorcycle_collision`,
+`truck_collision`,
+`alcohol_involved`
+FROM `collision`
+WHERE 1"
+. ($area != "" ? " AND `jurisdiction` = '%s'" : "")
+. " AND `collision_year` IN (%s)"
+. " AND `collision_severity` IN (%s)
+ORDER BY `case_id` ASC";
 
 $sql = $area != "" ? sprintf("{$select}", $area, implode(",", $year), implode(",", $severity)) : sprintf("{$select}", implode(",", $year), implode(",", $severity));
 
@@ -75,37 +91,78 @@ $rows = mysql_query($sql);
 
 $values = array();
 $key = 0;
-$id = 0;
-$count = 0;
 while ($item = mysql_fetch_object($rows)) {
-	if($id != $item->id) {
-		$values[$key++] = array(
-			$item->id,
-			$item->year,
-			$item->time,
-			$item->severity,
-			$item->highway,
-			$item->road,
-			$item->latitude,
-			$item->longitude,
-			$item->road_part,
-			$item->contribute_factor,
-			$item->description,
-			$item->type,
-			$item->injury
-		);
-		$id = $item->id;
-		$count++;
-	} else {
-		$values[$key-1][10] .= ";" . $item->description;
-		$values[$key-1][11] .= ";" . $item->type;
-		$values[$key-1][12] .= ";" . $item->injury;
-	}
+	$values[$key++] = array(
+		"collision_year" => $item->collision_year,
+		"collision_date" => $item->collision_date,
+		"collision_time" => $item->collision_time,
+		"jurisdiction" => $item->jurisdiction,
+		"day_of_week" => $item->day_of_week,
+		"population" => $item->population,
+		"country_city_location" => $item->country_city_location,
+		"special_condition" => $item->special_condition,
+		"beat_type" => $item->beat_type,
+		"chp_beat_type" => $item->chp_beat_type,
+		"primary_rd" => $item->primary_rd,
+		"secondary_rd" => $item->secondary_rd,
+		"distance" => $item->distance,
+		"intersection" => $item->intersection,
+		"direction" => $item->direction,
+		"weather_1" => $item->weather_1,
+		"weather_2" => $item->weather_2,
+		"state_highway_indicator" => $item->state_highway_indicator,
+		"collision_severity" => $item->collision_severity,
+		"killed_victims" => $item->killed_victims,
+		"injured_victims" => $item->injured_victims,
+		"primary_collision_factor" => $item->primary_collision_factor,
+		"pcf_violation_code" => $item->pcf_violation_code,
+		"pcf_violation_category" => $item->pcf_violation_category,
+		"hit_and_run" => $item->hit_and_run,
+		"type_of_collision" => $item->type_of_collision,
+		"motor_vehicle_involved_with" => $item->motor_vehicle_involved_with,
+		"pedestrian_collision" => $item->pedestrian_collision,
+		"bicycle_collision" => $item->bicycle_collision,
+		"motorcycle_collision" => $item->motorcycle_collision,
+		"truck_collision" => $item->truck_collision,
+		"alcohol_involved" => $item->alcohol_involved
+	);
 }
 
 echo json_encode(array(
 	"table" => array(
-		"cols" => array("id", "year", "time", "severity", "highway", "road", "latitude", "longitude", "road_part", "contribute_factor", "description", "type", "injury"),
+		"cols" => array("case_id",
+			"collision_year",
+			"collision_date",
+			"collision_time",
+			"jurisdiction",
+			"day_of_week",
+			"population",
+			"country_city_location",
+			"special_condition",
+			"beat_type",
+			"chp_beat_type",
+			"primary_rd",
+			"secondary_rd",
+			"distance",
+			"intersection",
+			"direction",
+			"weather_1",
+			"weather_2",
+			"state_highway_indicator",
+			"collision_severity",
+			"killed_victims",
+			"injured_victims",
+			"primary_collision_factor",
+			"pcf_violation_code",
+			"pcf_violation_category",
+			"hit_and_run",
+			"type_of_collision",
+			"motor_vehicle_involved_with",
+			"pedestrian_collision",
+			"bicycle_collision",
+			"motorcycle_collision",
+			"truck_collision",
+			"alcohol_involved"),
 		"rows" => $values
 	)
 ));

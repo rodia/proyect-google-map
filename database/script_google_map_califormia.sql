@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `collision` (
   `secondary_ramp` varchar(2) NOT NULL,
   `latitude` int(11) NOT NULL,
   `longitude` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `party` (
   `chp_vehicle_type_towing` varchar(2) NOT NULL,
   `chp_vehicle_type_towed` varchar(2) NOT NULL,
   `party_race` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `victim` (
   `victim_safety_equipament_1` varchar(1) NOT NULL,
   `victim_safety_equipament_2` varchar(2) NOT NULL,
   `victim_ejected` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

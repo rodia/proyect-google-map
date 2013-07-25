@@ -22,23 +22,22 @@ tool.getYear = function(years) {
 	return years;
 }
 tool.getPositions = function(choose) {
-	if (choose == "Chambers County") {
-		return {lat: 29.83983428, lon: -94.70638058};
-	} else if (choose == "Liberty County") {
-		return {lat: 30.19604123, lon: -94.94775117};
-	} else if (choose == "Fort Bend County") {
-		// 29.59361675 | -95.63731449
-		return {lat: 29.59361675, lon: -95.63731449};
-	} else if (choose == "Montgomery County") {
-		// 30.12688943 | -95.44030071
-		return {lat: 30.12688943, lon: -95.44030071};
-	} else if (choose == "Harris County") {
-		// 29.902541 | -95.400529
-		return {lat: 29.902541, lon: -95.400529};
-	} else {
-		// 29.597164 -95.46027601
-		return {lat: 29.597164, lon: -95.46027601};
-	}
+	return {lat: 36.771892, lon: -119.4053};
+}
+/**
+ * @param address Address by search
+ */
+tool.getPositionsBy = function(address) {
+	var position = [];
+	geocoder.geocode({'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			var latitude = results[0].geometry.location.lat();
+			var longitude = results[0].geometry.location.lng();
+			position["latitude"] = latitude;
+			position["longitude"] = longitude;
+		}
+	});
+	return position;
 }
 
 var now = new Date;
@@ -96,7 +95,7 @@ $(document).ready(function() {
 	 * @param lon Define longitude position in the map
 	 */
 	function load(data, lat, lon) {
-		var myLatlng = new google.maps.LatLng(lat, lon); //29.82333582, -94.87875233
+		var myLatlng = new google.maps.LatLng(lat, lon);
 		var myOptions = {
 			zoom: zoom,
 			center: myLatlng,
@@ -117,9 +116,10 @@ $(document).ready(function() {
 		});
 
 		for (var a = 0; a < data.length; a++) {
+			var pos = tool.getPositionsBy(data.primary_rd + "," + data.secondary_rd);
 			var tmpMarker = new google.maps.Marker({
 				map: map,
-				position: new google.maps.LatLng(parseFloat(data[a][6]), parseFloat(data[a][7])),
+				position: new google.maps.LatLng(parseFloat(pos["latitude"]), parseFloat(pos["longitude"])),
 				markerID: markers.length,
 				accidentSeverity: data[a][3].toLowerCase(),
 				hiddenME: false,
