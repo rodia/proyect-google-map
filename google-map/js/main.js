@@ -29,6 +29,7 @@ tool.getPositions = function(choose) {
  */
 tool.getPositionsBy = function(address) {
 	var position = [];
+	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			var latitude = results[0].geometry.location.lat();
@@ -43,7 +44,7 @@ tool.getPositionsBy = function(address) {
 var now = new Date;
 var area = "";
 var years = "";
-var severity = ['fatal'];
+var severity = ['1'];
 var zoom = 8;
 
 var loadData = [[false, 'unknown'], [false, 'possible injury'], [false, 'not injured'], [false, 'non-incapacitating'], [false, 'incapacitating injury'], [false, 'fatal']];
@@ -68,7 +69,7 @@ $(document).ready(function() {
 	function startup(choose) {
 		$('#loading').show();
 		preloading();
-		var tmpQuery = encodeURI('http://' + location.host + '/google-map/data.php');
+		var tmpQuery = encodeURI('http://' + location.host + '/proyect-google-map/google-map/data.php');
 
 		var positions = tool.getPositions(choose);
 
@@ -121,22 +122,22 @@ $(document).ready(function() {
 				map: map,
 				position: new google.maps.LatLng(parseFloat(pos["latitude"]), parseFloat(pos["longitude"])),
 				markerID: markers.length,
-				accidentSeverity: data[a][3].toLowerCase(),
+				accidentSeverity: data[a].collision_severity.toLowerCase(),
 				hiddenME: false,
 				hiddenCLUSTER: false,
-				icon: 'images/'+data[a][3].toLowerCase().replace(" ", "-")+'.png',
+				icon: 'images/'+data[a].collision_severity.toLowerCase().replace(" ", "-")+'.png',
 				shadow: markerShadow,
-				markerCode: data[a][3].toLowerCase().replace(" ", "-"),
-				markerName: data[a][4],
-				markerDate: data[a][1],
-				markerRoad: data[a][8],
-				markerTime: data[a][2],
-				markerFactor: data[a][9],
-				markerVehicle: data[a][10],
-				markerPerson: data[a][11],
-				markerInjury: data[a][12],
-				markerLat: data[a][6],
-				markerLon: data[a][7]
+				markerCode: data[a].case_id,
+				markerName: data[a].primary_rd,
+				markerDate: data[a].collision_date,
+				markerRoad: data[a].country_city_location,
+				markerTime: data[a].collision_time,
+				markerFactor: data[a].primary_collision_factor,
+				markerVehicle: data[a].chp_road_type,
+				markerPerson: data[a].killed_victims + data[a].injured_victims,
+				markerInjury: data[a].injured_victims,
+				markerLat: pos["latitude"],
+				markerLon: pos["longitude"]
 			});
 			google.maps.event.addListener(tmpMarker, 'click', markerClick);
 			markers.push(tmpMarker);

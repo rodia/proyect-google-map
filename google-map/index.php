@@ -58,7 +58,6 @@
 		</style>
 
 		<link href="css/main.css" rel="stylesheet" />
-
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/clusterer.js"></script>
@@ -133,12 +132,12 @@
 							<td colspan="6" style="padding: 5px 0;">Choose one or more options for the years</td>
 						</tr>
 						<tr>
-							<td><label><input type="checkbox" name="year[]" value="2007">2007</label></td>
+							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2007">2007</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2008">2008</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2009">2009</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2010">2010</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2011">2011</label></td>
-							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>
+							<td><label><input type="checkbox" name="year[]" value="2012" checked="checked">2012</label></td>
 							<!--<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>-->
 							<td><input type="button" class="choose-year" name="year[]" value="Load"></td>
 						</tr>

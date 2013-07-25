@@ -10,21 +10,21 @@ header("Content-type: application/json");
 /**
  * Implement cache
  */
-$settings_cachedir = 'cache/';
-$settings_cachetime = 86400;
-//Pagina php
-$thispage = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-$cachelink = $settings_cachedir.md5($thispage).'.html';
-if (@file_exists($cachelink)) {
-	$cachelink_time = @filemtime($cachelink);
-	if ((time() - $settings_cachetime) < $cachelink_time) {
-		@readfile($cachelink);
-		die();
-	} else {
-		@unlink($cachelink);
-	}
-}
-ob_start();
+//$settings_cachedir = 'cache/';
+//$settings_cachetime = 86400;
+////Pagina php
+//$thispage = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//$cachelink = $settings_cachedir.md5($thispage).'.html';
+//if (@file_exists($cachelink)) {
+//	$cachelink_time = @filemtime($cachelink);
+//	if ((time() - $settings_cachetime) < $cachelink_time) {
+//		@readfile($cachelink);
+//		die();
+//	} else {
+//		@unlink($cachelink);
+//	}
+//}
+//ob_start();
 require("connection.php");
 require("functions.php");
 
@@ -73,6 +73,7 @@ $select = "SELECT
 `hit_and_run`,
 `type_of_collision`,
 `motor_vehicle_involved_with`,
+`chp_road_type`,
 `pedestrian_collision`,
 `bicycle_collision`,
 `motorcycle_collision`,
@@ -120,6 +121,7 @@ while ($item = mysql_fetch_object($rows)) {
 		"hit_and_run" => $item->hit_and_run,
 		"type_of_collision" => $item->type_of_collision,
 		"motor_vehicle_involved_with" => $item->motor_vehicle_involved_with,
+		"chp_road_type" => $item->chp_road_type,
 		"pedestrian_collision" => $item->pedestrian_collision,
 		"bicycle_collision" => $item->bicycle_collision,
 		"motorcycle_collision" => $item->motorcycle_collision,
@@ -158,6 +160,7 @@ echo json_encode(array(
 			"hit_and_run",
 			"type_of_collision",
 			"motor_vehicle_involved_with",
+			"chp_road_type",
 			"pedestrian_collision",
 			"bicycle_collision",
 			"motorcycle_collision",
@@ -167,4 +170,4 @@ echo json_encode(array(
 	)
 ));
 
-$fp = fopen($cachelink, 'w');@fwrite($fp, ob_get_contents());@fclose($fp);ob_end_flush();
+//$fp = fopen($cachelink, 'w');@fwrite($fp, ob_get_contents());@fclose($fp);ob_end_flush();
