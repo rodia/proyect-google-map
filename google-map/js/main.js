@@ -26,19 +26,48 @@ tool.getPositions = function(choose) {
 }
 /**
  * @param address Address by search
+ * @param data Data of dababase
+ * @param map
+ * @param markers
+ * @param clusterMarkers
  */
-tool.getPositionsBy = function(address) {
-	var position = [];
+tool.getPositionsBy = function(address, data, map, markers, clusterMarkers, markerShadow, markerClick) {
+	address = address + ",california,estados unidos";
+//	console.log(address);
 	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			var latitude = results[0].geometry.location.lat();
 			var longitude = results[0].geometry.location.lng();
-			position["latitude"] = latitude;
-			position["longitude"] = longitude;
+
+			var tmpMarker = new google.maps.Marker({
+				map: map,
+				position: new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude)),
+				markerID: markers.length,
+				accidentSeverity: data.collision_severity.toLowerCase(),
+				hiddenME: false,
+				hiddenCLUSTER: false,
+				icon: 'images/'+data.collision_severity + '.png',
+				shadow: markerShadow,
+				markerCode: data.case_id,
+				markerName: data.primary_rd,
+				markerDate: data.collision_date,
+				markerRoad: data.country_city_location,
+				markerTime: data.collision_time,
+				markerFactor: data.primary_collision_factor,
+				markerVehicle: data.chp_road_type,
+				markerPerson: data.killed_victims + data.injured_victims,
+				markerInjury: data.injured_victims,
+				markerLat: latitude,
+				markerLon: longitude
+			});
+			google.maps.event.addListener(tmpMarker, 'click', markerClick);
+			markers.push(tmpMarker);
+			clusterMarkers.addMarker(tmpMarker);
 		}
 	});
-	return position;
+//	console.log(position["latitude"]);
+//	console.log(position["longitude"]);
 }
 
 var now = new Date;
@@ -117,31 +146,9 @@ $(document).ready(function() {
 		});
 
 		for (var a = 0; a < data.length; a++) {
-			var pos = tool.getPositionsBy(data.primary_rd + "," + data.secondary_rd);
-			var tmpMarker = new google.maps.Marker({
-				map: map,
-				position: new google.maps.LatLng(parseFloat(pos["latitude"]), parseFloat(pos["longitude"])),
-				markerID: markers.length,
-				accidentSeverity: data[a].collision_severity.toLowerCase(),
-				hiddenME: false,
-				hiddenCLUSTER: false,
-				icon: 'images/'+data[a].collision_severity.toLowerCase().replace(" ", "-")+'.png',
-				shadow: markerShadow,
-				markerCode: data[a].case_id,
-				markerName: data[a].primary_rd,
-				markerDate: data[a].collision_date,
-				markerRoad: data[a].country_city_location,
-				markerTime: data[a].collision_time,
-				markerFactor: data[a].primary_collision_factor,
-				markerVehicle: data[a].chp_road_type,
-				markerPerson: data[a].killed_victims + data[a].injured_victims,
-				markerInjury: data[a].injured_victims,
-				markerLat: pos["latitude"],
-				markerLon: pos["longitude"]
-			});
-			google.maps.event.addListener(tmpMarker, 'click', markerClick);
-			markers.push(tmpMarker);
-			clusterMarkers.addMarker(tmpMarker);
+			var pos = tool.getPositionsBy(data[a].primary_rd + "," + data[a].secondary_rd, data[a], map, markers, clusterMarkers, markerShadow, markerClick);
+//			if (pos.length == 0) continue;
+
 		}
 
 		$('#loading').hide();
