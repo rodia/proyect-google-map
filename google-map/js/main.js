@@ -30,53 +30,119 @@ tool.getPositions = function(choose) {
  * @param map
  * @param markers
  * @param clusterMarkers
+ * @param markerShadow
+ * @param markerClick
  */
 tool.getPositionsBy = function(address, data, map, markers, clusterMarkers, markerShadow, markerClick) {
 	address = address + ",california,estados unidos";
-//	console.log(address);
 	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			var latitude = results[0].geometry.location.lat();
 			var longitude = results[0].geometry.location.lng();
 
-			var tmpMarker = new google.maps.Marker({
-				map: map,
-				position: new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude)),
-				markerID: markers.length,
-				accidentSeverity: data.collision_severity.toLowerCase(),
-				hiddenME: false,
-				hiddenCLUSTER: false,
-				icon: 'images/'+data.collision_severity + '.png',
-				shadow: markerShadow,
-				markerCode: data.case_id,
-				markerName: data.primary_rd,
-				markerDate: data.collision_date,
-				markerRoad: data.country_city_location,
-				markerTime: data.collision_time,
-				markerFactor: data.primary_collision_factor,
-				markerVehicle: data.chp_road_type,
-				markerPerson: data.killed_victims + data.injured_victims,
-				markerInjury: data.injured_victims,
-				markerLat: latitude,
-				markerLon: longitude
-			});
-			google.maps.event.addListener(tmpMarker, 'click', markerClick);
-			markers.push(tmpMarker);
-			clusterMarkers.addMarker(tmpMarker);
+			tool.createMarker(data, longitude, latitude, map, markers, clusterMarkers, markerShadow, markerClick);
+			tool.saveLatLon(data.case_id, longitude, latitude);
 		}
 	});
-//	console.log(position["latitude"]);
-//	console.log(position["longitude"]);
 }
 
+tool.createMarker = function(data, latitude, longitude, map, markers, clusterMarkers, markerShadow, markerClick) {
+	var code = choices.severity(data.collision_severity);
+	var tmpMarker = new google.maps.Marker({
+		map: map,
+		position: new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude)),
+		markerID: markers.length,
+		accidentSeverity: data.collision_severity,
+		hiddenME: false,
+		hiddenCLUSTER: false,
+		icon: 'images/'+data.collision_severity + '.png',
+		shadow: markerShadow,
+		markerCode: code.replace("(", "").replace(" ", "-").toLowerCase(),
+		markerName: data.primary_rd + ", " + data.secondary_rd,
+		markerDate: data.collision_date,
+		markerRoad: data.country_city_location,
+		markerTime: data.collision_time,
+		markerFactor: data.primary_collision_factor,
+		markerVehicle: data.chp_road_type,
+		markerPerson: data.killed_victims + data.injured_victims,
+		markerInjury: data.injured_victims,
+		markerLat: latitude,
+		markerLon: longitude
+	});
+	google.maps.event.addListener(tmpMarker, 'click', markerClick);
+	markers.push(tmpMarker);
+	clusterMarkers.addMarker(tmpMarker);
+}
+
+tool.saveLatLon = function(case_id, longitude, latitude) {
+	var tmpQuery = encodeURI('http://' + location.host + '/proyect-google-map/google-map/save-latlog.php');
+
+	/*
+	 * AJAX Request - Thes request is GET by cache method
+	 */
+	$.ajax({
+		url: 		tmpQuery,
+		dataType: 	'json',
+		cache: 		true,
+		data:		{id: case_id, latitude: latitude, longitude: longitude},
+		type:		"post",
+		success: 	function(data) {
+						console.log("Save " + data.result);
+					}
+	});
+}
+
+var choices = {};
+
+choices.severity = function(code){
+	codes = [
+		"PDO",
+		"Fatal",
+		"Injury (Severe)",
+		"Injury (Other Visible)",
+		"Injury (Complaint of Pain)"
+	]
+	return codes[code];
+}
+
+choices.road_type = function(code) {
+	return code;
+}
+
+choices.condicion = function(code) {
+	var condicion = [];
+	condicion["A"] = "Holes, Deep Ruts";
+	condicion["B"] = "Loose Material on Roadway";
+	condicion["C"] = "Obstruction on Roadway";
+	condicion["D"] = "Construction or Repair Zone";
+	condicion["E"] = "Reduced Roadway Width";
+	condicion["F"] = "Flooded";
+	condicion["G"] = "Other";
+	condicion["H"] = "No Unusual Condition";
+	condicion["-"] = "Not Stated";
+
+	return condicion[code];
+}
+
+choices.primary_factor = function(code) {
+	var factors = [];
+	factors["A"] = "(Vehicle) Code Violation";
+	factors["B"] = "Other Improper Driving";
+	factors["C"] = "Other Than Driver";
+	factors["D"] = "Unknown";
+	factors["E"] = "Fell Asleep";
+	factors["-"] = "Not Stated";
+
+	return factors[code];
+}
 var now = new Date;
 var area = "";
 var years = "";
 var severity = ['1'];
 var zoom = 8;
 
-var loadData = [[false, 'unknown'], [false, 'possible injury'], [false, 'not injured'], [false, 'non-incapacitating'], [false, 'incapacitating injury'], [false, 'fatal']];
+var loadData = [[false, 'PDO'], [false, 'Injury (Complaint of Pain)'], [false, 'Injury (Other Visible)'], [false, 'Injury (Severe)'], [false, 'fatal']];
 
 $(document).ready(function() {
 	var map;
@@ -146,8 +212,12 @@ $(document).ready(function() {
 		});
 
 		for (var a = 0; a < data.length; a++) {
-			var pos = tool.getPositionsBy(data[a].primary_rd + "," + data[a].secondary_rd, data[a], map, markers, clusterMarkers, markerShadow, markerClick);
-//			if (pos.length == 0) continue;
+			if (data[a].latitude == 0 || data[a].longitude == 0) {
+				tool.getPositionsBy(data[a].primary_rd + "," + data[a].secondary_rd, data[a], map, markers, clusterMarkers, markerShadow, markerClick);
+			} else {
+				console.log(data[a].latitude + " " + data[a].longitude);
+				tool.createMarker(data[a], data[a].latitude, data[a].longitude, map, markers, clusterMarkers, markerShadow, markerClick);
+			}
 
 		}
 
@@ -357,7 +427,7 @@ $(document).ready(function() {
 			'<tbody>'+
 				'<tr>'+
 					'<td class="alignright bold">Severity:</td>'+
-					'<td class="'+marker.markerCode+'" title="'+marker.markerLat + ' ' + marker.markerLon+'">'+capitaliseFirstLetter(marker.accidentSeverity)+'</td>'+
+					'<td class="'+marker.markerCode+'" title="'+marker.markerLat + ' ' + marker.markerLon+'">'+capitaliseFirstLetter(choices.severity(marker.accidentSeverity))+'</td>'+
 				'</tr>'+
 				'<tr class="even">'+
 					'<td width="25%" class="alignright bold">Location:</td>'+
@@ -370,10 +440,10 @@ $(document).ready(function() {
 					'<td class="alignright bold">Road Part:</td><td>'+marker.markerRoad+'</td>'+
 				'</tr>'+
 				'<tr>'+
-					'<td class="alignright bold">Vehicle:</td><td>'+marker.markerVehicle.split(';').join('<br/>')+'</td>'+
+					'<td class="alignright bold">Vehicle:</td><td>'+marker.markerVehicle+'</td>'+
 				'</tr>'+
 				'<tr class="even">'+
-					'<td colspan="2">'+marker.markerFactor.split(';').join('<br/>')+'</td>'+
+					'<td colspan="2">'+choices.primary_factor(marker.markerFactor)+'</td>'+
 				'</tr>'+
 			'</tbody>'+
 		'</table>';
@@ -409,53 +479,6 @@ $(document).ready(function() {
 				zoom = 11;
 				positions = tool.getPositions(area);
 				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 30.19604123, -94.94775117 //30.02071675 -94.53394066
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
-				break;
-			case 3:
-				area = "Fort Bend County";
-				years = $(".pre-defined").val();
-				zoom = 10;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 30.19604123, -94.94775117 //30.02071675 -94.53394066
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
-				break;
-			case 4:
-				area = "Montgomery County";
-				years = $(".pre-defined").val();
-				zoom = 10;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 30.19604123, -94.94775117)); //30.02071675 -94.53394066
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
-				break;
-			case 5:
-				area = "Harris County";
-				years = $(".pre-defined").val();
-				//years = 2010;
-				checkYear(years, true);
-				zoom = 10;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 30.19604123, -94.94775117)); //30.02071675 -94.53394066
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
-				break;
-			case 6:
-//				area = "Chambers County";
-				area = "";
-				years = $(".pre-defined").val();
-				zoom = 8;
-				positions = tool.getPositions("");
-				map.setCenter(new google.maps.LatLng(29.758344, -95.35241)); // 29.83983428, -94.70638058 //29.82333582 -94.87875233
 				map.setZoom(zoom);
 				resetSeverity();
 				resetCheck();
@@ -502,7 +525,7 @@ $(document).ready(function() {
 
 		for(var a = 0; a < markers.length; a++) {
 			if(markers[a].hiddenME == false) {
-				outputString += '<div class="clusterinfo '+markers[a].markerCode+'" markerID="'+markers[a].markerID+'">' + capitaliseFirstLetter(markers[a].accidentSeverity) + ' accident' + "</div>";
+				outputString += '<div class="clusterinfo '+markers[a].markerCode+'" markerID="'+markers[a].markerID+'">' + capitaliseFirstLetter(choices.severity(markers[a].accidentSeverity)) + ' accident' + "</div>";
 			}
 		}
 

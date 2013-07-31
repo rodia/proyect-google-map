@@ -1,3 +1,9 @@
+<?php
+/**
+ * This template for show map
+ */
+include_once 'functions.php';
+?>
 <!DOCTYPE html>
 <html lang="">
 	<head>
@@ -77,29 +83,17 @@
 							Black spots
 						</span>
 
-<!--						<div class="link">
-							<span class="block"><a href="#">Chambers County</a></span>
-						</div>
-
 						<div class="link even">
-							<span class="block"><a href="#">Liberty County</a></span>
+							<span class="block"><a href="#">R</a></span>
 						</div>
 
 						<div class="link">
-							<span class="block"><a href="#">Fort Bend County</a></span>
-						</div>
-
-						<div class="link even">
-							<span class="block"><a href="#">Montgomery County</a></span>
-						</div>
-
-						<div class="link">
-							<span class="block"><a href="#">Harris County</a></span>
+							<span class="block"><a href="#">H</a></span>
 						</div>
 
 						<div class="link even active">
 							<span class="block"><a href="#">See All 5 Counties</a></span>
-						</div>-->
+						</div>
 					</div>
 
 					<div class="information">
@@ -118,12 +112,11 @@
 							<td colspan="6" style="padding: 5px 0;">Severity:</td>
 						</tr>
 						<tr>
-							<td style="padding: 5px 0;"><div class="checkbox unknown inlineclass rightspace" checkType="unknown"></div>Unknown</td>
-							<td><div class="checkbox possible-injury inlineclass rightspace" checkType="possible injury"></div>Possible injury</td>
-							<td><div class="checkbox not-injured inlineclass rightspace" checkType="not injured"></div>Not injured</td>
-							<td><div class="checkbox non-incapacitating inlineclass rightspace" checkType="non-incapacitating"></div>Non incapacitating</td>
-							<td><div class="checkbox incapacitating-injury inlineclass rightspace" checkType="incapacitating injury"></div>Incapacitating injury</td>
-							<td><div class="checkbox fatal checked inlineclass rightspace" checkType="fatal"></div>Fatal</td>
+							<td style="padding: 5px 0;"><div class="checkbox unknown inlineclass rightspace" checkType="0"></div><?php echo get_label_by_severity(0); ?></td>
+							<td><div class="checkbox not-injured inlineclass rightspace" checkType="4"></div><?php echo get_label_by_severity(4); ?></td>
+							<td><div class="checkbox non-incapacitating inlineclass rightspace" checkType="3"></div><?php echo get_label_by_severity(3); ?></td>
+							<td><div class="checkbox incapacitating-injury inlineclass rightspace" checkType="2"></div><?php echo get_label_by_severity(2); ?></td>
+							<td><div class="checkbox fatal checked inlineclass rightspace" checkType="1"></div><?php echo get_label_by_severity(1); ?></td>
 						</tr>
 					</table>
 
@@ -132,14 +125,17 @@
 							<td colspan="6" style="padding: 5px 0;">Choose one or more options for the years</td>
 						</tr>
 						<tr>
-							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2007">2007</label></td>
+							<td><label><input type="checkbox" name="year[]" value="2007">2007</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2008">2008</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2009">2009</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2010">2010</label></td>
 							<td><label><input type="checkbox" name="year[]" value="2011">2011</label></td>
-							<td><label><input type="checkbox" name="year[]" value="2012" checked="checked">2012</label></td>
+							<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>
 							<!--<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>-->
 							<td><input type="button" class="choose-year" name="year[]" value="Load"></td>
+						</tr>
+						<tr>
+							<td colspan="7"><input type="button" value="Next"></td>
 						</tr>
 					</table>
 				</div>

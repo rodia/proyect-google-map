@@ -5,7 +5,6 @@ include("functions.php");
 
 $table = isset($_GET["t"]) ? $_GET["t"] : "";
 $struct = array(
-	//"victim" => array("Case Id", "Party Number", "Victim Role", "Victim Sex", "Victim Age", "Victim Degree of Injury", "Victim Seating Position", "Victim Safety Equipment 1", "Victim Safety Equipment 2", "Victim Ejected"
 	"victim" => array( 'case_id', 'party_number', 'victim_role', 'victim_sex', 'victim_age', 'victim_degree_of_injured',  'victim_seating_position', 'victim_safety_equipament_1', 'victim_safety_equipament_2', 'victim_ejected'
 ),
 	"party" => array( 'case_id','party_number','party_type','at_fault','party_sex','party_age','party_sobriety','party_drug_phisical','direction_of_travel', 'party_safety_equipament_1','party_safety_equipament_2','financial_responsibility','special_information_1','special_information_2','special_information_3','oaf_voiolation_code','oaf_violation_category','oaf_vioaltion_section','oaf_violation_suffix','other_associated_factor_1','other_associated_factor_2','party_number_killed','party_number_injured','movement_preceding_collision','vehicle_year','vehicle_make','statewide_vehicle_type','chp_vehicle_type_towing','chp_vehicle_type_towed','party_race'
@@ -15,7 +14,6 @@ $struct = array(
 );
 
 $file = fopen("table-{$table}.csv", "r") or exit("Unable to open file!");
-//$file = fopen("table-victim.csv", "r") or exit("Unable to open file!");
 
 $key = -1;
 
@@ -43,7 +41,6 @@ while (!feof($file))
 	if ($key%1000 == 0) {
 		$rows = substr($rows, 0, -1);
 		$sql = sprintf($patten, implode(",", $cols), $rows);
-		//echo "\n";
 		mysql_query($sql);
 		$rows = "";
 	}
@@ -52,12 +49,6 @@ fclose($file);
 if ($rows != "") {
 	$rows = substr($rows, 0, -1);
 	$sql = sprintf($patten, implode(",", $cols), $rows);
-	//echo "\n";
 	mysql_query($sql);
-	//echo 'position dos';
 }
 header ("Location: ".$_SERVER['HTTP_REFERER']);
-/* update for filed */
-/*mysql_query("UPDATE `insident` SET `latitude` = replace(`latitude`, ',', '.'), `longitude` = replace(`longitude`, ',', '.')");
-echo "Rows insert";*/
-?>

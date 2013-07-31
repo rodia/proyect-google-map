@@ -40,3 +40,15 @@ function getTotal($select, $years, $area = "") {
 	$sql = $area != "" ? sprintf($select, $area, $years) : sprintf($select, $years);
 	return mysql_num_rows(mysql_query($sql));
 }
+
+function get_label_by_severity($code) {
+	$codes = array(
+		"PDO",
+		"Fatal",
+		"Injury (Severe)",
+		"Injury (Other Visible)",
+		"Injury (Complaint of Pain)"
+	);
+
+	return $codes[$code];
+}

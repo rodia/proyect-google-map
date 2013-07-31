@@ -1,28 +1,28 @@
 <?php
+/**
+ * This script load all coordenate into database.
+ */
+set_time_limit(0);
+include("connection.php");
+include("functions.php");
 
-?>
-<html>
-<head>
-	<title>test</title>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+$sql = "SELECT `case_id`, `primary_rd`, `secondary_rd` FROM `collision` WHERE `latitude` = '' AND `longitude` = '' LIMIT 1";
 
-<script type="text/javascript">
+$rows = mysql_query($sql);
 
-var geocoder = new google.maps.Geocoder();
-var address = "new york";
+while ($row = mysql_fetch_object($rows)) {
+	$address = "{$row->primary_rd}, {$row->secondary_rd}, California";
+	// http://maps.google.com/maps/geo?q=27703&output=json&key=AIzaSyBVr3n3IVZzakGvtIWeRaJEXsC63JHZ0w8
+	// http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=true_or_false
+	$result = json_decode(file_get_contents(sprintf('http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false&key=AIzaSyAqK3X4kzm4mcWoqK8sEp4MpqhlVE1S8g8', urlencode($address))));
+	var_dump($result);// $result->Status->code;
+	if ($result->Status->code == 200)
+	{
+		$lat = $result->Placemark[0]->Point->coordinates[0];
+		$long = $result->Placemark[0]->Point->coordinates[1];
 
-geocoder.geocode( { 'address': address}, function(results, status) {
-
-	if (status == google.maps.GeocoderStatus.OK) {
-		var latitude = results[0].geometry.location.lat();
-		var longitude = results[0].geometry.location.lng();
-		alert(latitude + " " + longitude);
+		echo "{$lat}, {$long}";
+	} else {
+		echo "no,";
 	}
-});
-</script>
-</head>
-
-<body>
-
-</body>
-</html>
+}
