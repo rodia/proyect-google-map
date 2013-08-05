@@ -14,6 +14,38 @@ if(!Array.indexOf){
         return -1;
     }
 }
+/**
+ * ReplaceAll by Fagner Brack (MIT Licensed)
+ * Replaces all occurrences of a substring in a string
+ */
+String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
+    var _token;
+    var str = this + "";
+    var i = -1;
+
+    if ( typeof token === "string" ) {
+
+        if ( ignoreCase ) {
+
+            _token = token.toLowerCase();
+
+            while( (
+                i = str.toLowerCase().indexOf(
+                    token, i >= 0 ? i + newToken.length : 0
+                ) ) !== -1
+            ) {
+                str = str.substring( 0, i ) +
+                    newToken +
+                    str.substring( i + token.length );
+            }
+
+        } else {
+            return this.split( token ).join( newToken );
+        }
+
+    }
+	return str;
+};
 var tool = {};
 tool.getYear = function(years) {
 	if (years < 1900) {
@@ -23,6 +55,23 @@ tool.getYear = function(years) {
 }
 tool.getPositions = function(choose) {
 	return {lat: 36.771892, lon: -119.4053};
+}
+/**
+ *
+ */
+tool.replaceSubstring = function(inSource, inToReplace, inReplaceWith) {
+
+  var outString = inSource;
+  while (true) {
+    var idx = outString.indexOf(inToReplace);
+    if (idx == -1) {
+      break;
+    }
+    outString = outString.substring(0, idx) + inReplaceWith +
+      outString.substring(idx + inToReplace.length);
+  }
+  return outString;
+
 }
 /**
  * @param address Address by search
@@ -58,7 +107,7 @@ tool.createMarker = function(data, latitude, longitude, map, markers, clusterMar
 		hiddenCLUSTER: false,
 		icon: 'images/'+data.collision_severity + '.png',
 		shadow: markerShadow,
-		markerCode: code.replace("(", "").replace(" ", "-").toLowerCase(),
+		markerCode: code.replaceAll("(", "").replaceAll(")", "").replaceAll(" ", "-").toLowerCase(),
 		markerName: data.primary_rd + ", " + data.secondary_rd,
 		markerDate: data.collision_date,
 		markerRoad: data.country_city_location,
