@@ -150,7 +150,7 @@ tool.createMarker = function(data, latitude, longitude, map, markers, clusterMar
 }
 
 tool.saveLatLon = function(case_id, longitude, latitude) {
-	var tmpQuery = encodeURI('http://' + location.host + '/proyect-google-map/google-map/save-latlog.php');
+	var tmpQuery = encodeURI('http://' + location.host + '/google-map/save-latlog.php');
 
 	/*
 	 * AJAX Request - Thes request is GET by cache method
@@ -216,7 +216,7 @@ var years = "";
 var severity = ['1'];
 var zoom = 8;
 
-var loadData = [[false, 'PDO'], [false, 'Injury (Complaint of Pain)'], [false, 'Injury (Other Visible)'], [false, 'Injury (Severe)'], [false, 'fatal']];
+var loadData = [[false, '0'], [false, '4'], [false, '3'], [false, '2'], [false, '1']];
 
 $(document).ready(function() {
 	var map;
@@ -238,7 +238,7 @@ $(document).ready(function() {
 	function startup(choose) {
 		$('#loading').show();
 		preloading();
-		var tmpQuery = encodeURI('http://' + location.host + '/proyect-google-map/google-map/data.php');
+		var tmpQuery = encodeURI('http://' + location.host + '/google-map/data.php');
 
 		var positions = tool.getPositions(choose);
 
@@ -453,9 +453,9 @@ $(document).ready(function() {
 			$(this).removeClass('checked');
 		});
 
-		$("div.checkbox[checkType=fatal]").addClass('checked');
+		$("div.checkbox[checkType=1]").addClass('checked');
 
-		severity = ['fatal'];
+		severity = ['1'];
 	}
 	/**
 	 * hide markes in the map when user choose a severity checkbox
@@ -684,6 +684,7 @@ $(document).ready(function() {
 		console.log(zoom);
 		console.log(years);
 		console.log(area);
+		console.log(severity);
 	}
 
 	function capitaliseFirstLetter(string) {
