@@ -32,9 +32,9 @@ require("functions.php");
  * Getting variable
  */
 
-$area = isset($_GET["area"]) ? $_GET["area"] : "";
+$area = isset($_GET["area"]) ? $_GET["area"] : "3404";
 $year = isset($_GET["year"]) ? $_GET["year"] : date("Y");
-$severity = isset($_GET["severity"]) ? $_GET["severity"] : "FATAL";
+$severity = isset($_GET["severity"]) ? $_GET["severity"] : "1";
 $start = isset($_GET["start"]) ? $_GET["start"] : 0;
 $qr = isset($_GET["qr"]) ? $_GET["qr"] : 10;
 
@@ -71,9 +71,10 @@ $select = "SELECT
 `motorcycle_collision`,
 `truck_collision`,
 `alcohol_involved`,
-`latitude`,
-`longitude`
+`collision_point`.`latitude` AS `latitude`,
+`collision_point`.`longitude` AS `longitude`
 FROM `collision`
+INNER JOIN `collision_point` ON (`collision`.`case_id` = `collision_point`.`Field1`)
 WHERE `country_city_location` IN ('3401', '3402', '3403', '3404', '3408', '3412', '3422', '3433', '3450', '3490', '3496', '3497')"
 . ($area != "" ? " AND `country_city_location` = '%s'" : "")
 . " AND `collision_year` IN (%s)"
