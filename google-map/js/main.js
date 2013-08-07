@@ -54,6 +54,31 @@ tool.getYear = function(years) {
 	return years;
 }
 tool.getPositions = function(choose) {
+	if (choose == "3401") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3402") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3403") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3404") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3408") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3412") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3422") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3433") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3450") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3490") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3496") {
+		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3497") {
+		return {lat: 36.771892, lon: -119.4053};
+	}
 	return {lat: 36.771892, lon: -119.4053};
 }
 /**
@@ -291,6 +316,7 @@ $(document).ready(function() {
 	function markerClick() {
 		clusterGroup = "";
 		loadAccidentInfo(this);
+		open_icon();
 	}
 
 	/**
@@ -333,6 +359,13 @@ $(document).ready(function() {
 		// startup(area);
 	}
 
+	function close_icon() {
+		$(".close-icon").parent().hide();
+	}
+
+	function open_icon() {
+		$(".close-icon").parent().show();
+	}
 	/**
 	 * This function manage the action for all checkbox for severity info.
 	 */
@@ -351,6 +384,7 @@ $(document).ready(function() {
 
 	$('div.clusterinfo').live('click', function() {
 		loadAccidentInfo(markers[$(this).attr('markerID')]);
+		open_icon();
 	});
 
 	$('div#navigation div.link').click(function(){
@@ -512,7 +546,7 @@ $(document).ready(function() {
 		var positions = {};
 		switch (index) {
 			case 1:
-				area = "Chambers County";
+				area = "3401";
 				years = $(".pre-defined").val();
 				zoom = 11;
 				positions = tool.getPositions(area);
@@ -523,11 +557,121 @@ $(document).ready(function() {
 				startup(area);
 				break;
 			case 2:
-				area = "Liberty County";
+				area = "3402";
 				years = $(".pre-defined").val();
 				zoom = 11;
 				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 30.19604123, -94.94775117 //30.02071675 -94.53394066
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 3:
+				area = "3403";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 4:
+				area = "3404";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 5:
+				area = "3408";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 6:
+				area = "3412";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 7:
+				area = "3422";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 8:
+				area = "3433";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 9:
+				area = "3450";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 10:
+				area = "3490";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 11:
+				area = "3496";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+				map.setZoom(zoom);
+				resetSeverity();
+				resetCheck();
+				startup(area);
+				break;
+			case 12:
+				area = "3497";
+				years = $(".pre-defined").val();
+				zoom = 11;
+				positions = tool.getPositions(area);
+				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
 				map.setZoom(zoom);
 				resetSeverity();
 				resetCheck();
@@ -577,13 +721,17 @@ $(document).ready(function() {
 				outputString += '<div class="clusterinfo '+markers[a].markerCode+'" markerID="'+markers[a].markerID+'">' + capitaliseFirstLetter(choices.severity(markers[a].accidentSeverity)) + ' accident' + "</div>";
 			}
 		}
-
+		open_icon();
 		$('#informationheader').html("Blackspot information");
 		$('#info').html(outputString);
 	}
 
 	$('#btnBack').live('click',function(){
 		clusterClick(clusterGroup);
+	});
+
+	$(".close-icon").click(function() {
+		$(this).parent().hide();
 	});
 
 	preloading();

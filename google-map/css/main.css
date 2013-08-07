@@ -36,6 +36,8 @@ a:hover{
 }
 .floatright {
 	float: right;
+	margin-right: 22px;
+	margin-top: 2px;
 }
 .clear {
 	zoom: 1;
@@ -152,6 +154,37 @@ div#container div.sidebar div#navigation div.link.active {
 
 div#container div.sidebar div.information {
 /*	height: 500px;*/
+position: absolute;
+margin-left: -300px;
+margin-top: -69px;
+background-color: #ccc;
+width: 300px;
+}
+.close-icon {
+	position: absolute;
+	margin-left: 280px;
+	margin-top: 2px;
+
+	border: none;
+}
+.close-icon img {
+	-khtml-opacity:.30;
+	-moz-opacity:.30;
+	-ms-filter:"alpha(opacity=30)";
+	 filter: alpha(opacity=30);
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.3);
+	 opacity:0.3;
+
+	 cursor: pointer;
+}
+.close-icon:hover img {
+	-khtml-opacity:1.0;
+	-moz-opacity:1.0;
+	-ms-filter:"alpha(opacity=100)";
+	 filter:alpha(opacity=100);
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=1.0);
+	 opacity:1.0;
+	 border: none;
 }
 div#container div.sidebar div.information div.info {
 	font-family: "Arial";

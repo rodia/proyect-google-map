@@ -84,19 +84,60 @@ include_once 'functions.php';
 						</span>
 
 						<div class="link even">
-							<span class="block"><a href="#">R</a></span>
+							<span class="block"><a href="#">FOLSOM</a></span>
 						</div>
 
 						<div class="link">
-							<span class="block"><a href="#">H</a></span>
+							<span class="block"><a href="#">GALT</a></span>
+						</div>
+
+						<div class="link even">
+							<span class="block"><a href="#">ISLETON</a></span>
+						</div>
+
+						<div class="link">
+							<span class="block"><a href="#">SACRAMENTO</a></span>
+						</div>
+
+						<div class="link even">
+							<span class="block"><a href="#">CSUSACRAMENTO</a></span>
+						</div>
+
+						<div class="link">
+							<span class="block"><a href="#">AMERICANRIVPKDIST</a></span>
+						</div>
+
+						<div class="link even">
+							<span class="block"><a href="#">GOLDRUSHPARKDIST</a></span>
+						</div>
+
+						<div class="link">
+							<span class="block"><a href="#">TWINCITIESPKDIST</a></span>
+						</div>
+
+						<div class="link even">
+							<span class="block"><a href="#">ELKGROVE</a></span>
+						</div>
+
+						<div class="link">
+							<span class="block"><a href="#">RANCHOCORDOVA</a></span>
+						</div>
+
+						<div class="link even">
+							<span class="block"><a href="#">CITRUSHEIGHTS</a></span>
+						</div>
+
+						<div class="link">
+							<span class="block"><a href="#">UCDMEDICALCENTER</a></span>
 						</div>
 
 						<div class="link even active">
-							<span class="block"><a href="#">See All 5 Counties</a></span>
+							<span class="block"><a href="#">See All Counties</a></span>
 						</div>
 					</div>
 
-					<div class="information">
+					<div class="information" style="display: none;">
+						<a class="close-icon"><img src="images/close.png" width="18" height="18"></a>
 						<span id="informationheader" class="block header">
 							Information
 						</span>
