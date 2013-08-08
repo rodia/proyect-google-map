@@ -54,14 +54,14 @@ tool.getYear = function(years) {
 	return years;
 }
 tool.getPositions = function(choose) {
-	if (choose == "3401") {
-		return {lat: 36.771892, lon: -119.4053};
-	} else if (choose == "3402") {
+	if (choose == "3401") { // FOLSON 38.678 -121.1761
+		return {lat: 38.678, lon: -121.1761};
+	} else if (choose == "3402") { //
 		return {lat: 36.771892, lon: -119.4053};
 	} else if (choose == "3403") {
 		return {lat: 36.771892, lon: -119.4053};
-	} else if (choose == "3404") {
-		return {lat: 36.771892, lon: -119.4053};
+	} else if (choose == "3404") { // SACRAMENTO 38.4996 -121.4653
+		return {lat: 38.4996, lon: -121.4653};
 	} else if (choose == "3408") {
 		return {lat: 36.771892, lon: -119.4053};
 	} else if (choose == "3412") {
@@ -79,7 +79,7 @@ tool.getPositions = function(choose) {
 	} else if (choose == "3497") {
 		return {lat: 36.771892, lon: -119.4053};
 	}
-	return {lat: 36.771892, lon: -119.4053};
+	return {lat: 38.4996, lon: -121.4653};
 }
 /**
  *
@@ -685,6 +685,7 @@ $(document).ready(function() {
 		console.log(years);
 		console.log(area);
 		console.log(severity);
+		console.log("Test");
 	}
 
 	function capitaliseFirstLetter(string) {
