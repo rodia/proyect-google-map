@@ -79,7 +79,7 @@ tool.getPositions = function(choose) {
 	} else if (choose == "3497") {
 		return {lat: 36.771892, lon: -119.4053};
 	}
-	return {lat: 38.4996, lon: -121.4653};
+	return {lat: 38.5817, lon: -121.4933}; // 38.5865 -121.493; 38.5817° N, -121.4933° W
 }
 /**
  *
@@ -162,7 +162,7 @@ tool.saveLatLon = function(case_id, longitude, latitude) {
 		data:		{id: case_id, latitude: latitude, longitude: longitude},
 		type:		"post",
 		success: 	function(data) {
-						console.log("Save " + data.result);
+//						console.log("Save " + data.result);
 					}
 	});
 }
@@ -289,7 +289,7 @@ $(document).ready(function() {
 			if (data[a].latitude == 0 || data[a].longitude == 0) {
 				tool.getPositionsBy(data[a].primary_rd + "," + data[a].secondary_rd, data[a], map, markers, clusterMarkers, markerShadow, markerClick);
 			} else {
-				console.log(data[a].latitude + " " + data[a].longitude);
+//				console.log(data[a].latitude + " " + data[a].longitude);
 				tool.createMarker(data[a], data[a].latitude, data[a].longitude, map, markers, clusterMarkers, markerShadow, markerClick);
 			}
 
@@ -549,143 +549,94 @@ $(document).ready(function() {
 				area = "3401";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon)); // 29.83983428, -94.70638058 //29.82333582 -94.87875233
-				map.setZoom(11);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 2:
 				area = "3402";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 3:
 				area = "3403";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 4:
 				area = "3404";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 5:
 				area = "3408";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 6:
 				area = "3412";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 7:
 				area = "3422";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 8:
 				area = "3433";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 9:
 				area = "3450";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 10:
 				area = "3490";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 11:
 				area = "3496";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			case 12:
 				area = "3497";
 				years = $(".pre-defined").val();
 				zoom = 11;
-				positions = tool.getPositions(area);
-				map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
-				map.setZoom(zoom);
-				resetSeverity();
-				resetCheck();
-				startup(area);
+
 				break;
 			default:
-				alert('It appears there was an error. Please try again or refresh the page.');
+//				alert('It appears there was an error. Please try again or refresh the page.');
+
+				area = "";
+				years = $(".pre-defined").val();
+				zoom = 11;
 				break;
 		}
-		console.log(zoom);
-		console.log(years);
-		console.log(area);
-		console.log(severity);
-		console.log("Test");
+
+		positions = tool.getPositions(area);
+		map.setCenter(new google.maps.LatLng(positions.lat, positions.lon));
+		map.setZoom(zoom);
+		resetSeverity();
+		resetCheck();
+		startup(area);
+//		console.log(zoom);
+//		console.log(years);
+//		console.log(area);
+//		console.log(severity);
+//		console.log("Test");
 	}
 
 	function capitaliseFirstLetter(string) {

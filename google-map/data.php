@@ -10,21 +10,21 @@ header("Content-type: application/json");
 /**
  * Implement cache
  */
-//$settings_cachedir = 'cache/';
-//$settings_cachetime = 86400;
-////Pagina php
-//$thispage = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-//$cachelink = $settings_cachedir.md5($thispage).'.html';
-//if (@file_exists($cachelink)) {
-//	$cachelink_time = @filemtime($cachelink);
-//	if ((time() - $settings_cachetime) < $cachelink_time) {
-//		@readfile($cachelink);
-//		die();
-//	} else {
-//		@unlink($cachelink);
-//	}
-//}
-//ob_start();
+$settings_cachedir = 'cache/';
+$settings_cachetime = 86400;
+
+$thispage = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$cachelink = $settings_cachedir.md5($thispage).'.html';
+if (@file_exists($cachelink)) {
+	$cachelink_time = @filemtime($cachelink);
+	if ((time() - $settings_cachetime) < $cachelink_time) {
+		@readfile($cachelink);
+		die();
+	} else {
+		@unlink($cachelink);
+	}
+}
+ob_start();
 require("connection.php");
 require("functions.php");
 
@@ -151,4 +151,4 @@ echo json_encode(array(
 	)
 ));
 
-//$fp = fopen($cachelink, 'w');@fwrite($fp, ob_get_contents());@fclose($fp);ob_end_flush();
+$fp = fopen($cachelink, 'w');@fwrite($fp, ob_get_contents());@fclose($fp);ob_end_flush();
