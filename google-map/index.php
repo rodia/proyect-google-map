@@ -175,9 +175,9 @@ include_once 'functions.php';
 							<!--<td><label><input type="checkbox" class="pre-defined" name="year[]" value="2012" checked="checked">2012</label></td>-->
 							<td><input type="button" class="choose-year" name="year[]" value="Load"></td>
 						</tr>
-						<tr>
+<!--						<tr>
 							<td colspan="7"><input type="button" value="Next"></td>
-						</tr>
+						</tr>-->
 					</table>
 				</div>
 
