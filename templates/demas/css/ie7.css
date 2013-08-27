@@ -1,0 +1,19 @@
+/*------------------------------------------------------------------------
+* Copyright (c) 2008-2011 ZooTemplate. All Rights Reserved.
+* @license - Copyrighted Commercial Software
+* Author: ZooTemplate
+* Websites:  http://www.zootemplate.com
+-------------------------------------------------------------------------*/
+#zt-userwrap1-inner{width:101%; margin: 0 -10px;}
+
+div.box-red h3.moduletitle{height:52px; width: 285px;text-align:center;}
+
+div.latestnews .read-allnews{float:none;width:100%;display:inline-block;}
+div.box-2 p.read-allnews{display:none;}
+
+div.zt-field{width:95%;}
+.jvcarousel-pagi{margin-top:-15px;}
+
+select{
+	width:225px;
+}

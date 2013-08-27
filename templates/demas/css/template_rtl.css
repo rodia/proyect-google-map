@@ -1,0 +1,198 @@
+/*------------------------------------------------------------------------
+* Copyright (c) 2008-2011 ZooTemplate. All Rights Reserved.
+* @license - Copyrighted Commercial Software
+* Author: ZooTemplate
+* Websites:  http://www.zootemplate.com
+-------------------------------------------------------------------------*/
+html {direction: rtl;}
+
+
+/* HEADER	------------*/
+.rtl #zt-time {float: right;}
+
+.rtl #zt-followus{float:left;}
+
+.rtl #zt-search {float: left;}
+.rtl #zt-search .inputbox {float: right;}
+.rtl #zt-search .bt-search {float: left;}
+
+.rtl #zt-topmenu {float: left;}
+.rtl #zt-topmenu ul.menu {float: left;}
+.rtl #zt-topmenu ul.menu li {float: left;}
+
+.rtl #zt-login {float: left;}
+.rtl #zt-login div.zt-field {float: right;}
+
+.rtl #zt-tool {float: left;}
+.rtl #zt-copyright {float: left;}
+.rtl #zt-footer {float: right;}
+
+
+.rtl ol li {margin-right: 21px;margin-left: 0;}
+.rtl ul li {
+	padding-left: 0;
+	padding-right: 15px;
+	background: url(../images/bullet.png) no-repeat 100% 9px;
+}
+
+
+/*	MEGA MENU	-----------------*/
+div.submenu-wrap{margin-top:5px}
+
+#menusys_mega div.subarrowtop{background-position: 85% 0;}
+#menusys_mega div.menusub_mega div.menusub_mega div.subarrowtop{left:auto;right:-11px;background:url(../images/mega/submega-right.png) no-repeat 0 0;}
+#menusys_mega li {float: right;}
+#menusys_mega {float: right;display: inline-block;}
+#menusys_mega .megacol {    float: right;}
+#menusys_mega span.has-image{ background-position: 100% 6px;}
+
+
+#menusys_mega li .megacol ul.mega-ul li span.no-image,
+#menusys_mega li .megacol ul.mega-ul li a.item:hover span.no-image,
+#menusys_mega li .megacol ul.mega-ul li a.active span.no-image {
+	display: block;
+	padding: 0;
+	background: url(../images/mega/default-menu-image-rtl.png) no-repeat 100% 12px;
+}
+
+#menusys_mega .mega-group span.has-image{
+	padding: 3px 5px 3px 0px;
+}
+
+#menusys_mega .megacol ul.mega-ul li{background-position: 100% 0;}
+
+#menusys_mega li.hover ul.mega-ul li a .menu-title,
+#menusys_mega li.hasChild ul.mega-ul li a .menu-title,
+#menusys_mega li.hasChild ul.mega-ul li a.active .menu-title,
+#menusys_mega li.hasChild ul.mega-ul li a.focus .menu-title{
+	padding: 2px 25px 2px 0;
+}
+/*
+#menusys_mega .megacol ul.mega-ul li.hasChild{
+	background: url(../images/mega/arrow-rtl.png) no-repeat 0% 9px;
+}
+*/
+#menusys_mega li.hasChild  ul.mega-ul li a span.has-image .menu-title,
+#menusys_mega li.hasChild:hover  ul.mega-ul li a span.has-image .menu-title,
+#menusys_mega li.hasChild  ul.mega-ul li a:hover span.has-image .menu-title,
+#menusys_mega li.hasChild  ul.mega-ul li a:focus span.has-image .menu-title{
+	padding: 0 5px 0 0;
+}
+
+
+/*	ZT Breadcrumb	------------------------------------------------	*/
+.rtl #zt-breadcrumb-inner {}
+.rtl #zt-breadcrumb img {display: none;}
+
+.rtl #zt-breadcrumb strong,
+.rtl #zt-breadcrumb a,
+.rtl #zt-breadcrumb span {
+	float: right;
+	display: inline;
+}
+.rtl #zt-breadcrumb strong {padding-left: 5px;}
+.rtl #zt-breadcrumb a {
+	padding-left: 13px;
+	background: url(../images/arrow-rtl.png) no-repeat 3px 7px;
+}
+.rtl .zt-social {
+	position: absolute;
+	top: 15px;
+	right: auto;
+	left: 15px;
+}
+
+.rtl #zt-left div.moduletable_contact input.inputbox,
+.rtl #zt-left div.moduletable_contact textarea.inputbox {clear: left;float: left;}
+
+.rtl #zt-login div.zt-field a {
+	padding-right: 10px;
+	padding-left: 0;
+	background: url(../images/arrow-white-rtl.png) no-repeat 100% 5px;
+}
+
+.rtl #zt-userwrap2 .zt-user .zt-box-inside .moduletable h3.moduletitle,
+.rtl #zt-userwrap2 .zt-user .zt-box-inside .moduletable_text h3.moduletitle,
+.rtl #zt-userwrap2 .zt-user .zt-box-inside .moduletable_menu h3.moduletitle{
+	padding:0px 0px 10px 0px;
+}
+
+.rtl #zt-userwrap2 .zt-user .moduletable h3.moduletitle{background-position:right top;}
+.rtl #zt-userwrap2 .zt-user .zt-box-inside a.link-readmore{float:left;}
+
+.rtl .page-into-register fieldset label{float:right;}
+.rtl ul.pagination li {background:0 none; padding:0;}
+.rtl #zt-login .zt-field-remember .checkbox{float:right;}
+.rtl #zt-login .zt-field-remember label{float:right;}
+
+
+/*	ZT Online Reservation	------------------------------------------------	*/
+
+.rtl .zt_online_reservation .image-booking{
+	position:absolute;
+	top:-6px;
+	left:-5px;
+	right: auto;
+	background:url(../images/title-booking-rtl.png) no-repeat left top;
+}
+
+.rtl .zt_online_reservation .zt-check-in,
+.rtl .zt_online_reservation .zt-adults,
+.rtl .zt_online_reservation .zt-rooms,
+.rtl .zt_online_reservation .zt-advance{float:right;}
+
+.rtl .zt_online_reservation .zt-check-out,
+.rtl .zt_online_reservation .zt-childrens,
+.rtl .zt_online_reservation .zt-check{float:left;}
+
+.rtl .zt_online_reservation .zt-field .zt-advance a{float:right;}
+.rtl .zt_online_reservation .zt-field .zt-check .button{float:left;}
+
+.rtl .zt_newsletter .image-email{left:7px;right:auto;}
+.rtl .zt_newsletter .zt-field .button{float:left;}
+
+.rtl #zt-left div.moduletable_menu ul li{background-position: 100% 0;}
+.rtl #zt-left div.moduletable_menu ul li a{
+	padding:0;padding-right: 25px;
+	background:url(../images/mega/default-menu-image-rtl.png) no-repeat 100% 7px;
+}
+#zt-left div.moduletable_menu ul li.parent ul li a{
+	padding:0;
+	padding-right:40px;
+	background:url(../images/mega/default-menu2-image-rtl.png) no-repeat 100% 7px;
+}
+.rtl #zt-footer ul.menu li{
+	margin:0px 0px 0px 10px;
+	padding:0px 0px 0px 10px;
+	background-position: left center;
+}
+/*	ZT Testimonial-----------------------------------------------------	*/
+
+.rtl .zt-testimonial ul li{
+	padding:10px 0px;
+	background:0 none;
+	border-bottom:1px solid #2d1e0f;
+	overflow:hidden;
+}
+.rtl .zt-testimonial ul li.last{border-bottom:none;}
+.rtl .zt-testimonial ul li .avatar{float:right;margin:0px 0px 0px 7px;}
+.rtl .zt-testimonial ul li .comment{float:right;}
+
+
+div.moduletable .highslide-gallery ul li{float:right;}
+
+
+/*	ZT Wrapper-----------------------------------------------------	*/
+.rtl img.personal{float:right;margin: 0 0 0 10px;}
+.rtl .zt-user {float: right;}
+.rtl .zt-box-right {float: left;}
+.rtl .zt-box-left .zt-box-inside {padding: 0 0 0 8px;}
+.rtl .zt-box-right .zt-box-inside {padding: 0 8px 0 0;}
+
+.rtl #zt-col .zt-box-left .zt-box-inside{padding:0px 0px 0px 13px;}
+.rtl #zt-col .zt-box-right .zt-box-inside{padding:0px 13px 0px 0px;}
+
+#zt-wrapper ul.contact-list li{padding: 3px 25px 3px 0;}
+#zt-wrapper ul.contact-list li.add{ background-position: right 3px;}
+#zt-wrapper ul.contact-list li.tel{ background-position: right -40px;}
+#zt-wrapper ul.contact-list li.email{background-position: right -85px;}

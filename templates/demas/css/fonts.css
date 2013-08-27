@@ -1,0 +1,21 @@
+/*------------------------------------------------------------------------
+* ------------------------------------------------------------------------
+* Copyright (c) 2008-2011 ZooTemplate. All Rights Reserved.
+* @license - Copyrighted Commercial Software
+* Author: ZooTemplate
+* Websites:  http://www.zootemplate.com
+-------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('fonts/oswald.eot');
+    src: url('fonts/oswald.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald.woff') format('woff'),
+         url('fonts/oswald.ttf') format('truetype'),
+         url('fonts/oswald.svg') format('svg');
+}
+
+div.latestnews div.latestnewsitems h4{ font-family: 'Oswald';}
+div.social-network h3.moduletitle{font-family: 'Oswald'; }
+
+

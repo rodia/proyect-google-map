@@ -1,0 +1,357 @@
+/*------------------------------------------------------------------------
+* ZT Template 1.7 - Jan, 2010
+* ------------------------------------------------------------------------
+* Copyright (C) 2008-20010 APL Solutions And Vision Co., LTD. All Rights Reserved.
+* @license - Copyrighted Commercial Software
+* Author: APL Solutions And Vision Co., LTD
+* Websites:  http://www.joomgroup.com -  http://www.joomvision.com
+-------------------------------------------------------------------------*/
+/* ZT Latestnews-------------*/
+div.latestnews > div:last-child{margin-bottom:0;}
+
+div.moduletable div.latestnews{ margin:0 -15px ;}
+div.latestnews div.latestnewsitems{
+	border:1px solid #dddddd;
+	background:#f6f6f6;
+	width: auto !important;
+	
+	float:none;
+}
+div.latestnews div.latestnewsitems:hover{
+	background:#eee;
+}
+div.latesnews-inner{padding:10px;overflow:hidden;}
+div.latestnews div.latesnews-img {background:#fff;padding:4px;float:left;margin-right:10px;}
+div.latestnews div.latestnewsitems img {border:1px solid #bfb898;padding:0;margin:0;}
+div.latestnews .latestnewsdate{margin:3px 0 7px;font-size:11px;color:#babc8e;}
+div.latestnews .latesnews-text{padding: 0;display:inline;font-size:12px;}
+div.latestnews div.latestnewsitems h4{margin:0;font-weight:normal;font-size:16px;}
+
+div.latestnews a.readone,
+a.readmore{font-weight:bold;font-size:11px;padding-right:12px; background:url(../images/readmore.png) no-repeat right 3px;}
+
+
+
+div.social-network h3.moduletitle{color:#201e1d;}
+
+/* ZT Header-------------*/
+.jv-innerheadline-wrap{border:none;padding:0;margin: 10px;position:relative;}
+div.jv-innerheadline-wrap div.jv-proshow{border-radius:0;margin: 0 auto;}
+div.jv-innerheadline-wrap .jv-proshow-display{text-align:center; left: 0 !important;}
+
+div.jv-innerheadline-group ul li.item{ display:none;}
+div.jv-innerheadline-group ul li.but_pre,
+div.jv-innerheadline-group ul li.but_next{
+	width:25px;
+	height:23px;
+	display:block;
+	float:none;
+	position:absolute;
+	top: 50px;
+	padding:0;
+	z-index:99;
+	background:url(../images/sellon-hand.png) no-repeat;
+}
+div.jv-innerheadline-group ul li.but_pre{left:4px;}
+div.jv-innerheadline-group ul li.but_next{ right: 0px; background-position: right top;}
+
+
+div.jv-proshow .jv-proshow-intro{display:block; background:none;}
+div.jv-innerheadline-wrap .jv-proshow-intro{
+	width: 250px;
+	left:0;bottom:auto;
+	top: 130px;
+}
+#memberships{margin: 18px 0;}
+
+
+a.readon{font-weight:bold;font-size:11px;padding-right:12px; background:url(../images/readmore.png) no-repeat right 3px;float:right;}
+
+/*----- ZT Maju ----*/
+div.jv-majuheadline-wrapper{background:none;padding:0;border:none;}
+div.jv-proshowwrap div.jv-proshow{margin:0;}
+div.gkIsImage{border-radius: 5px; overflow:hidden;}
+.gkIsWrapper-gk_coffe .gkIsSlide{border-radius:5px;}
+/*
+#zt-highlight-inner{margin-top:15px;text-align:right;}
+h3.label-call,
+h3.label-call2{font-size:23px;font-weight:normal;margin:0 0 5px; font-family:"Adobe Garamond Pro";color:#948a54;}
+h3.label-call2{font-size:18px;}
+div.call-number{width:100%;display:inline-block;clear:both;font-family:tahoma; color:#948a54;}
+div.call-number .cinfo{ font-size: 90%; }
+div.call-number h4{
+	color:#548dd4;
+	margin:0 0 5px;
+	font-size:100%;
+}
+*/
+#zt-highlight-inner {
+    margin-top: 15px;
+    text-align: right;
+}
+h3.label-call, h3.label-call2 {
+    color: #413E26;
+    font-family: "Adobe Garamond Pro";
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+h3.label-call2 {
+    font-size: 18px;
+}
+div.call-number {
+    clear: both;
+    color: #413E26;
+    display: inline-block;
+    font-family: "Adobe Garamond Pro";
+    width: 100%;
+}
+h4.number1, h4.call-number1 {
+    display: inline;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 40px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+h3.number2, h3.call-number2 {
+    display: inline;
+    font-size: 48px;
+    line-height: 40px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+h4.call-number1 {
+    font-size: 14px;
+}
+h3.call-number2 {
+    font-size: 37px;
+}
+
+/*----- ZT Pedon ----*/
+div.jv-proshow{margin-bottom:25px;}
+div.jv-pedonheadline-wrap .jv-proshow-intro{display:none;}
+div.moduletable .jv-pedonheadline-wrap .but_pre,
+div.moduletable .jv-pedonheadline-wrap .but_next{
+	width:30px !important;
+	height:40px;
+	display:block;
+	margin-right: 15px;
+	background:url(../images/sellon-hand.png) no-repeat 0 center;
+}
+div.moduletable .jv-pedonheadline-wrap .but_next{background-position: right center; margin: 0 0 0 15px;}
+div.jv-pedonheadline-wrap .jv-pedonheadline-group ul li{margin: 0 3px;}
+div.jv-pedonheadline-wrap .jv-pedonheadline-group{background:none;padding:18px 0;border-top:1px solid #979868;border-bottom:1px solid #979868;}
+div.jv_slideshow6_wrap .s6bar_container{background:none;padding:0;}
+.jv-pedonheadline-group a:hover img,
+.jv-pedonheadline-group a:active img,
+.jv-pedonheadline-group a:focus img ,
+.jv-pedonheadline-group ul li.active img{
+	background: #797b54;
+}
+
+/* ZT Contact Form-------------*/
+.htitleot{
+	width:100%;
+	color:#17365d;
+	margin:0 0 20px 0;
+	line-height:16px;
+}
+.htitle{
+	width:100%;
+	text-align:center;
+	font-size:160%;
+	color:#4a442a;
+	padding:0 0 5px 0;
+	border-bottom:1px solid #000000;
+}
+.htitle span{
+	color:#17365d;
+}
+
+.modulestitlebook{
+	width:100%;
+	text-align:center;
+	font-size:115%;
+	color:#4a442a;
+	padding:0 0 5px 0;
+	border-bottom:1px solid #000000;
+}
+.modulestitlebook span{
+	color:#17365d;
+}
+.booklist { width: 100%; float: left;}
+.booklist .left{ float: left; }
+.booklist .right{ float: right; }
+.booklist .order { width: 100%; float:left; font-size: 80%; text-align: right; padding: 10px 0; text-decoration: underline;}
+
+ul.flag { float: left; list-style: none outside none; margin: 10px 0 5px; padding: 0; width: 100%; }
+ul.flag li{ margin: 0 10px; width: 40px; height: 30px; padding: 0; background: 0; list-style: none; float: left;}
+
+.hdes{
+	width:100%;
+	font-size:70%;
+	color:#17365d;
+	text-align:center;
+}
+#myForm{padding:15px 0;}
+#myForm textarea,
+#myForm input{border:none; padding:6px 10px; width: 250px;font-family:"Helvetica Neue";color:#83878a;text-transform:capitalize;font-size:14px; border:1px solid #d4d2b4; }
+
+#myForm input.button {
+  background: url("../images/button.png") repeat-x scroll 0 0 ;
+  border: 0 none;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: left;
+  font-size: 160%;
+  font-weight: bold;
+  height: 47px;
+  padding: 0;
+  margin: 0;
+  font-family:Arial !important;
+  text-align: center;
+  text-shadow: none;
+  text-transform: none;
+  width: 275px;
+}
+#myForm div.zt-field{margin: 0 0 15px;overflow:hidden;}
+#myForm input.button:hover{background:#780405;}
+/* Box Color -------------*/
+div.box-red{min-width: 275px; display:inline-block;float:right;}
+div.box-red h3.moduletitle{
+	line-height:52px;
+	color:#fff;
+	text-shadow:1px 1px 0 #340101;
+	font-weight: normal;
+	position:relative;
+	z-index:9;
+	font-size:20px;
+	text-transform:uppercase;
+	text-align:center;
+	letter-spacing: 0.5;
+	border-bottom: 0;
+	padding:0;
+	margin:0;
+	background:url(../images/contact-title.jpg) repeat-x 0 0;
+}
+
+div.box-red div.modulecontent{background:#201e1d;margin-top:-3px;padding-top:5px;}
+
+div.box-grey {background:#f6f6f6;border:1px solid #dddddd;overflow:hidden;}
+div.box-grey h3.moduletitle {
+	border:none;
+	text-align:center;
+	font-family:"Arial Narrow";
+	text-transform:uppercase;
+	font-weight:bold;
+	margin: 10px 15px 0 ;
+}
+
+div.box-2{background:#f6f6f6;border:1px solid #dddddd;}
+div.box-2 h3.moduletitle {
+	border:none;
+	margin: 30px 15px 0px ;
+	padding:0;
+}
+div.box-2 div.custom{padding:0;}
+div.box-2 div.latestnews{margin:0; min-height:160px;}
+div.box-2 div.latestnews div.latestnewsitems{margin:0;border:none;background:none;}
+div.box-2 .read-allnews{display:none;}
+
+
+/* ZT Tabs -------------*/
+div.wrap-number{    background:  #fff;border: 1px solid #C6C5C5;border-top:none;padding:10px;}
+.jv_tab_vleft .container{background:none;}
+
+
+ul.jv_tabs_title li h3{padding: 5px 10px !important;font-size:13px;font-family:arial;color:#948c51;line-height:20px;}
+ul.jv_tabs_title li.active h3{color:#8a3a00;}
+
+.vleft_panel{top:0;}
+.vleft_panel_item .vleft_panel_container{
+	display:block;
+	padding:0 !important;
+	margin-bottom:10px;
+	border:2px solid #e3e4cf;
+	background:#fff;
+	display:inline-block;
+	width:95%;
+	box-shadow: 5px 5px 0 #e9e9d9;
+}
+.handles{margin: 10px 0;}
+span.nextnav, span.prenav{width:50px ; text-indent:0;color:#948a54;font-size:11px;cursor:pointer;display:inline; font-weight:bold;}
+div.jvcarousel-nav span.nextnav{
+	width:28px;height:11px;
+	background:url(../images/pape-arrow.png) no-repeat right bottom;
+	padding-right:13px;
+}
+div.jvcarousel-nav span.prenav{
+	height:11px;
+	background:url(../images/pape-arrow.png) no-repeat left 0px;
+	padding:0 10px 0 15px;
+	margin-right:5px;
+	border-right: 1px solid #948a54;
+	font-weight:bold;
+}
+div.jvcarousel-nav span.prenav.no-border{border-right:none;}
+
+h3.jvcarousel_title{margin:0 0 10px;padding-bottom:10px;border-bottom: 1px solid #e3e4cf;line-height:20px;}
+h3 > .jvcarousel_mtitle{font-size: 16px; color:maroon;}
+h2 > img.number-9{width:50px;height:52px;display:inline-block;top:-10px;position:relative;}
+
+h2.headingbar{
+	background:#cdccaf url(../images/headingbar.png) repeat-y right top;
+	padding: 0 10px;
+	height:36px;
+	margin:0;
+	display:block;
+	font-size:20px;
+	color:#fff;
+	text-align:center;
+}
+
+/* ZT Case -------------*/
+#zt-case{width:100%;display:inline-block;margin: 10px 0;}
+#zt-case ul.list-case{margin:0;}
+#zt-case ul.list-case li{background:none;padding:0;margin-bottom:2em; border-bottom: 2px solid #E8E8E8; padding-bottom:2em;}
+#zt-case ul.list-case li:last-child{margin-bottom:1em;}
+
+#zt-case ul.list-case li h3.case-pice{margin:0 0 5px 0;color:#515502;font-size:22px;font-weight:normal;}
+#zt-case ul.list-case li a.case-link{margin:0;color:#babc8e;font-size:13px;text-decoration:underline;}
+#zt-case ul.list-case li a.case-link:hover{color:#333; text-decoration:none;}
+#zt-case p.readmore{float:right;margin:0;}
+#zt-case p.readmore a{display:block; font-size:13px;}
+
+
+/* Image Show-------------*/
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsText{background:none;}
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsSlides{-webkit-border-radius: 5px;
+									-moz-border-radius: 5px;
+									border-radius: 5px;}
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsText h4{margin: 10px 0;padding:0;text-align:right;font-style:normal;font-family: "Georgia";}
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsText h4 > a{color:#ffc200;}
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsText h4 a span{color:#fff;display:block;}
+div.moduletable .gkIsWrapper-gk_black_and_white .gkIsText p{margin:0;padding:5px 0;text-align:right;font-size:22px;color:#fff;border-top:1px solid #eee;font-family: "Georgia";}
+
+/* BEGIN MODULE -------------*/
+ul.menu_bottom li{display:inline; background:none; border-right:1px solid #c1bd93; padding: 0 10px;}
+ul.menu_bottom li:first-child{padding-left:0;}
+ul.menu_bottom li:last-child{border-right: none;}
+ul.menu_bottom li a{font-size:13px;}
+
+ul.social{margin: 1em 0;float:left;}
+ul.social li {float:left;background:none;padding: 0 5px;}
+.font11{font-size:11px;}
+.font13 div.modulecontent{font-size:13px;color:#787850;}
+
+ul#mycarousel2 li {width: auto !important;}
+.jcarousel-skin-tango2 .jcarousel-item {width: auto !important;}
+div.profile{display:block;overflow:hidden;background:url(../images/profile.png) no-repeat left 55% ;}

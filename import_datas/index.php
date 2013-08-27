@@ -10,7 +10,8 @@
     <p><a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'victim'; ?>">victim</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'party'; ?>">party</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'collision'; ?>">collins</a>
-    <a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'collision_point&separator=,'; ?>">collins Point</a></p>
+    <a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'collision_point&separator=,'; ?>">collins Point</a>
+    <a href="<?php echo $_SERVER['REQUEST_URI'].'import.php?t='.'detail_point&separator=,'; ?>">Detail Point</a></p>
   </div>
 </body>
 </html>

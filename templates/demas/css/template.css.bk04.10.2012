@@ -1,0 +1,266 @@
+/*------------------------------------------------------------------------
+* ------------------------------------------------------------------------
+* Copyright (c) 2008-2011 ZooTemplate. All Rights Reserved.
+* @license - Copyrighted Commercial Software
+* Author: ZooTemplate
+* Websites:  http://www.zootemplate.com
+-------------------------------------------------------------------------*/
+
+/* COMMON STYLE
+--------------------------------------------------------- */
+html, body, form, fieldset {
+	margin: 0;
+	padding: 0;
+}
+body#bd {color: #616161;}
+
+body.fs1 {font-size: 10px;}
+body.fs2 {font-size: 14px;}
+body.fs3 {font-size: 13px;}
+body.fs4 {font-size: 13px;}
+body.fs5 {font-size: 14px;}
+body.fs6 {font-size: 15px;}
+
+
+.zt-wrapper {width: 940px;margin: 0 auto;}
+#zt-userwrap1,
+#zt-header{
+	width: 100%;
+	display: inline-block;
+}
+#zt-mainframe{width:100%;display:inline-block;background:url(../images/mainframe.png) repeat-x 0 0;}
+/*#zt-mainframe{width:100%;display:inline-block;background:url(../images/mainframe.png) repeat-x 0 0;border-top:2px solid #8a8b77;}*/
+
+#zt-userwrap1-inner,
+#zt-bottom-inner,
+#zt-mainframe-inner{width: 100%;display: block;}
+
+#zt-colspan2,#zt-colspan2-inner,
+#zt-colspan1,#zt-colspan1-inner,
+#zt-userwrap2,#zt-userwrap2-inner{width: 100%;display: inline-block;}
+
+#zt-colspan1-inner{margin-bottom:2em;}
+
+
+#zt-colspan2-inner{width:auto; margin: 0 -10px;}
+#zt-mainframe-inner{margin: 20px 0;}
+
+div.moduletable,
+div.moduletable_menu,
+div.moduletable_blank,
+div.moduletable_text {
+	clear: both;
+	position: relative;
+	margin: 0 0 15px 0;
+}
+#zt-userwrap2 div.modulecontent .custom{padding:0;}
+#zt-right div.moduletable{margin-bottom:25px;}
+div.moduletable_blank{margin:0;}
+div.moduletable_blank .modulecontent{padding:0;}
+
+/*---------- HEADER ------------
+-------------------------------*/
+
+#zt-header {width: 100%;display: inline-block; }
+#zt-header-inner{width:100%;display: inline-block;margin-bottom:1em;}
+
+#zt-logo {
+	height: auto;
+	display: block;
+	float:left;
+	margin: 0 10px;
+}
+#zt-logo h1 {margin: 18px 0 0;}
+#zt-logo a {
+	width: 339px;
+	height: 62px;
+	display: block;
+	background: url(../images/logo.png) no-repeat ;
+}
+#zt-logo span {display:none;}
+/*#zt-highlight{width: 58%;float:right; margin: 0;}*/
+#zt-highlight {
+  float: right;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+  width: 58%;
+}
+
+
+#zt-mainmenu {width: 100%;display:inline-block; background:url(../images/mainmenu.png) no-repeat 0 0}
+#zt-mainmenu-inner{margin: 25px 10px 0;}
+
+/*---------- RIGHT-----------
+------------------------------*/
+#zt-right {
+	float: right;
+	width: 120px;
+	overflow: hidden;
+}
+#zt-right-inner{padding: 0;}
+#zt-right ul.plus li{
+	background: #e8e8e8;
+	margin:0;
+	line-height: 8px;
+	padding: 10px 10px 0px 0;
+}
+#zt-right ul.plus{margin:0;}
+#zt-right ul.plus li.last{padding: 10px 10px 10px 0;}
+
+
+/*-----  LEFT	-----------
+--------------------------*/
+#zt-left {float: left;width: 190px;}
+#zt-left-inner{padding:0 15px ;overflow:hidden}
+#zt-left div.box-1{margin-top: 100px;}
+
+/* MENU CATEGORY --------*/
+#zt-left ul.menu li{
+	padding: 0;
+	margin:0;
+}
+#zt-left ul.menu li a{
+	padding: 4px 10px;
+	color: #666666;
+	display: block;
+	border: 1px solid #dbdbdb;
+	margin-bottom: 5px;
+	background: #dfdfdf url(../images/menu-bg.png) repeat-x left top;
+}
+
+#zt-left ul.menu ul ul{
+	padding-left: 15px;
+}
+#zt-left ul.menu ul a{
+	background: none;
+	border:none;
+}
+#myForm div.zt-field label{
+	color:#23334c;
+	font-size:90%;
+}
+/*-----  CONTENT	-----------
+-----------------------------*/
+#zt-mainbody {width: 100%;clear: both;background:url(../images/body-bg.png) repeat;}
+#zt-mainbody-inner{margin-top: 10px; display: inline-block; width:100%;}
+#zt-component {width: 100%;display: inline-block;margin-top: 1em;}
+
+.zt-user {float: left;}
+.zt-user .zt-box-inside {padding: 0 10px;}
+
+.zt-box-full{width: 100%;}
+.zt-box-full .zt-box-inside {
+	width: 100%;
+	padding: 0px !important;
+}
+.modulecontent{width:100%;display:inline-block;}
+.modulecontent .custom{padding: 0 15px;}
+h3.moduletitle {
+	margin: 13px 0 0px;
+	color: #5c6e70;
+	font-weight: bold;
+	line-height: 24px;
+	font-size:20px;
+	padding-bottom: 10px ;
+	font-family:"Arial Narrow";
+
+	border-bottom: 1px solid #cfd9e1;
+}
+
+h3.moduletitle1 {
+	margin: 0px 0 0px;
+	color: #616161;
+	font-weight: normal;
+	line-height: 20px;
+	font-size:16px;
+	padding-bottom: 5px ;
+	font-family:"Oswald";
+	border-bottom: 1px solid #DDDDDD;
+}
+
+h3.moduletitle2 {
+	margin: 0px 0 42px;
+	color: #515502;
+	font-weight: normal;
+	line-height: 20px;
+	font-size:16px;
+	padding-bottom: 5px ;
+	font-family:"Oswald";
+	padding-bottom:10px;
+	padding-top:30px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+
+
+
+/* LEFT CONTENT RIGHT
+--------------------------*/
+
+#zt-container,
+#zt-container-left,
+#zt-container-right,
+#zt-container-full {
+	width: 100%;
+	position: relative;
+}
+#zt-container-right{width:auto;margin: 0 -10px;}
+
+#zt-left {width: 31%;float: left;}
+#zt-content {width: 69%;float: left;}
+#zt-right {width: 31%;float: right;}
+
+#zt-left-inner,
+#zt-right-inner,
+#zt-content-inner {margin: 0 10px;}
+
+#zt-container-left #zt-content {width: 76%;}
+#zt-container-right #zt-content {width:69%}
+#zt-container-full #zt-content {width: 100%;}
+
+.zt-layout-lrc #zt-right {float: left;}
+.zt-layout-lrc #zt-content {float: right;}
+
+.zt-layout-clr #zt-right {float: right;}
+.zt-layout-clr #zt-left {float: right;}
+.zt-layout-clr #zt-content {float: left;}
+
+
+
+
+/*-----  Botttom	-----------
+-----------------------------*/
+#zt-bottom{width: 100%;display: inline-block;background:#696a40;}
+#zt-bottom-inner{margin: 1em 0 ;width: 100%;display:inline-block;}
+
+#zt-bottom-border1{width: 100%;display: inline-block;background:url(../images/bottom-1.jpg) no-repeat right top;padding-top:18px;}
+#zt-bottom-border2{background:#c1bd94 url(../images/bottom-2.jpg) repeat-x left top;}
+
+#zt-copyright{display:inline-block;width:100%;margin: 20px 0 10px;}
+#zt-copyright-inner{font-size:12px; text-align:center;}
+
+.result_bg {
+    background-color: #eceddf;
+    border-bottom: 1px solid #736951;
+    border-top: 1px solid #736951;
+    color: #000000;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    margin-bottom: 12px;
+    padding: 7px 7px 7px 15px;
+    text-align: left;
+    width: 98%;
+}
+
+.no-padd .modulecontent .custom,
+.new-box .modulecontent .custom{
+	padding:0;
+}
+select{
+	width:233px;
+	
+}
