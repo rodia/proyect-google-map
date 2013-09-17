@@ -26,7 +26,7 @@ include_once 'functions.php';
 	<body>
 		<div id="container">
 			<div class="content">
-				<p style="text-align: justify;"><img src="http://www.injury-attorneys.com/templates/demas/images/profile.png" alt="" width="620px" height="26px"></p>
+				<p style="text-align: justify; margin: 0;"><img src="http://www.injury-attorneys.com/templates/demas/images/profile.png" alt="" width="620px" height="26px"></p>
 				<p>As <a href="http://www.injury-attorneys.com/" target="_parent">Sacramento personal injury attorneys</a>, we see our fair share of car accident cases each year. As a service to our clients and potential clients, we have included the map below to help our visitors keep track of motor vehicle accidents in Sacramento and its surrounding counties. The map shows all accidents in the area that involved a car, truck, motorcycle, or bicycle that were reported to the California Department of Transportation from 2007 to 2012.</p>
 <p>The accident map allows people to pinpoint the most dangerous places around Sacramento where accidents occur, otherwise known as “black spots”. By using this map, Sacramento residents can avoid accident “black spots” to travel safer to their destination.</p>
 			</div>

@@ -171,11 +171,11 @@ var choices = {};
 
 choices.severity = function(code){
 	codes = [
-		"PDO",
-		"Fatal",
-		"Injury (Severe)",
-		"Injury (Other Visible)",
-		"Injury (Complaint of Pain)"
+		"Property Damage",
+		"Fatality",
+		"Severe Injury",
+		"Moderate Injury",
+		"Minor Injury"
 	]
 	return codes[code];
 }

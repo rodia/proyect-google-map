@@ -43,11 +43,11 @@ function getTotal($select, $years, $area = "") {
 
 function get_label_by_severity($code) {
 	$codes = array(
-		"PDO",
-		"Fatal",
-		"Injury (Severe)",
-		"Injury (Other Visible)",
-		"Injury (Complaint of Pain)"
+		"Property Damage",
+		"Fatality",
+		"Severe Injury",
+		"Moderate Injury",
+		"Minor Injury"
 	);
 
 	return $codes[$code];
